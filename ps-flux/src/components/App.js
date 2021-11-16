@@ -3,17 +3,17 @@ import HomePage from './HomePage';
 import AboutPage from './AboutPage';
 import Header from './common/Header';
 import CoursesPage from './CoursesPage';
+import { Route, Routes } from "react-router-dom";
 
 function App() {
-    function getPage() {
-        const route = window.location.pathname;
-        if (route === '/about') return <AboutPage />;
-        if (route === '/courses') return <CoursesPage />;
-        return <HomePage />;
-    }
+
     return (<div className="container-fluid">
         <Header />
-        { getPage() }
+        <Routes>
+            <Route path="/" element={ <HomePage/>} />
+            <Route path="/courses" element={ <CoursesPage/>} /> 
+            <Route path="/about" element={ <AboutPage/>} /> 
+        </Routes>
     </div>
     );
 }
